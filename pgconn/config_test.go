@@ -192,7 +192,7 @@ func TestParseConfig(t *testing.T) {
 		},
 		{
 			name:       "database url everything",
-			connString: "postgres://jack:secret@localhost:5432/mydb?sslmode=disable&application_name=pgxtest&search_path=myschema&connect_timeout=5",
+			connString: "postgres://jack:secret@localhost:5432/mydb?sslmode=disable&application_name=pgxtest&search_path=myschema&connect_timeout=5&fallback_application_name=fbpqxtest",
 			config: &pgconn.Config{
 				User:           "jack",
 				Password:       "secret",
@@ -330,7 +330,7 @@ func TestParseConfig(t *testing.T) {
 		},
 		{
 			name:       "DSN everything",
-			connString: "user=jack password=secret host=localhost port=5432 dbname=mydb sslmode=disable application_name=pgxtest search_path=myschema connect_timeout=5",
+			connString: "user=jack password=secret host=localhost port=5432 dbname=mydb sslmode=disable application_name=pgxtest search_path=myschema connect_timeout=5 fallback_application_name=fbpgxtest",
 			config: &pgconn.Config{
 				User:           "jack",
 				Password:       "secret",
